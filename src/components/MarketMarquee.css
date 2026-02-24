@@ -1,0 +1,68 @@
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(5, 8, 17, 0.95);
+    border-bottom: 1px solid var(--nexus-surface-border);
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 80;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee-scroll 40s linear infinite;
+    gap: 32px;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+}
+
+.marquee-symbol {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.marquee-price {
+    color: var(--text-secondary);
+}
+
+.marquee-change {
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.marquee-change.positive {
+    color: var(--nexus-green);
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+}
+
+.marquee-change.negative {
+    color: var(--nexus-red);
+    text-shadow: 0 0 5px rgba(255, 51, 102, 0.3);
+}
+
+/* Pause scroll on hover */
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Scrolls precisely half width since we duplicated items */
+}

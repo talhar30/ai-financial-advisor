@@ -4,6 +4,7 @@ import { DashboardGrid } from './components/DashboardGrid';
 import { ChatInterface, ChatMessage } from './components/ChatInterface';
 import { ChatInput } from './components/ChatInput';
 import { InvestmentForm } from './components/InvestmentForm';
+import { MarketMarquee } from './components/MarketMarquee';
 
 const TOOLHOUSE_URL = 'https://agents.toolhouse.ai/5ff731e2-e7c5-402b-be17-e1053e719c4f';
 
@@ -135,6 +136,7 @@ function App() {
 
             <div className="nexus-main">
                 <Header />
+                <MarketMarquee />
                 <div className="nexus-content-area flex flex-col items-center">
                     {renderActiveView()}
                 </div>
