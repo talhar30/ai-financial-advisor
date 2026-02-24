@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Sidebar } from './components/Sidebar';
+import { useState } from 'react';
 import { Header } from './components/Header';
 import { DashboardGrid } from './components/DashboardGrid';
 import { ChatInterface, ChatMessage } from './components/ChatInterface';
@@ -80,35 +79,11 @@ function App() {
         );
     };
 
-    // Dedicated generator for the Profiler
-    const generateReport = async (prompt: string): Promise<string> => {
-        return new Promise(async (resolve, reject) => {
-            let fullReport = '';
-            try {
-                await streamFromToolhouse(
-                    prompt,
-                    () => { }, // Do nothing on start, form shows loading state correctly
-                    (chunk) => {
-                        fullReport += chunk;
-                        // A bit of a hack: ideally we'd stream directly into the UI state of the form. 
-                        // Since we promised a string, wait until done.
-                        // Wait, we WANT it to stream visibly.
-                    }
-                );
-                resolve(fullReport);
-            } catch (e) {
-                reject(e);
-            }
-        });
-    };
-
     // We can also let the form handle streaming by passing the streamer
     // But to keep it simple, we'll implement a custom streamer just for the Profiler in App.
-    const [profilerReport, setProfilerReport] = useState('');
     const [isProfilerLoading, setIsProfilerLoading] = useState(false);
 
     const handleGenerateProfilerReport = async (prompt: string): Promise<string> => {
-        setProfilerReport('');
         setIsProfilerLoading(true);
         let finalStr = '';
         await streamFromToolhouse(
@@ -116,7 +91,6 @@ function App() {
             () => setIsProfilerLoading(false),
             (chunk) => {
                 finalStr += chunk;
-                setProfilerReport(prev => prev + chunk);
             }
         );
         return finalStr;

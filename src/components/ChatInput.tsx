@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Image, Paperclip, MoreHorizontal } from 'lucide-react';
+import { Send, Paperclip, MoreHorizontal } from 'lucide-react';
 import './ChatInterface.css';
 
 interface ChatInputProps {
