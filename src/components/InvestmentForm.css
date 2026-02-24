@@ -1,0 +1,158 @@
+.profiler-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.profiler-header {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profiler-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+.neon-text-cyan {
+    color: var(--nexus-cyan);
+    text-shadow: 0 0 10px var(--nexus-cyan-glow);
+}
+
+.profiler-content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+    .profiler-content {
+        flex-direction: column;
+    }
+}
+
+.profiler-form {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    background: var(--nexus-bg);
+    border: 1px solid var(--nexus-surface-border);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    outline: none;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--nexus-cyan);
+    box-shadow: 0 0 8px var(--nexus-cyan-glow);
+}
+
+.generate-btn {
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--nexus-cyan);
+    color: var(--nexus-cyan);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+.generate-btn:hover {
+    background: var(--nexus-cyan);
+    color: var(--nexus-bg);
+    box-shadow: 0 0 15px var(--nexus-cyan-glow);
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.report-output {
+    flex: 1.2;
+    min-height: 500px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed var(--nexus-surface-border);
+    transition: all 0.3s;
+    background: transparent;
+}
+
+.report-output.active {
+    border-style: solid;
+    background: var(--nexus-surface);
+}
+
+.analyzing-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1;
+    gap: 16px;
+    color: var(--text-secondary);
+}
+
+.markdown-report {
+    animation: floatUp 0.4s ease forwards;
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+.loader {
+    border: 2px solid rgba(0, 240, 255, 0.2);
+    border-top: 2px solid var(--nexus-cyan);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+}

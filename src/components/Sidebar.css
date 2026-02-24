@@ -1,0 +1,62 @@
+.nexus-sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: rgba(6, 9, 18, 0.95);
+    border-right: 1px solid var(--nexus-surface-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    margin-bottom: 40px;
+}
+
+.logo-orb {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--nexus-cyan), var(--nexus-bg));
+    box-shadow: 0 0 15px var(--nexus-cyan-glow);
+    animation: pulseGlow 4s infinite;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btn:hover {
+    color: var(--text-primary);
+    background: var(--nexus-surface-hover);
+    transform: translateX(2px);
+}
+
+.nav-btn.active {
+    color: var(--nexus-cyan);
+    background: var(--nexus-surface);
+    box-shadow: inset 2px 0 0 var(--nexus-cyan);
+}
